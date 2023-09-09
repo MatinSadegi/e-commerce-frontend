@@ -4,7 +4,10 @@ import { Poppins } from "next/font/google";
 import Bottombar from "./components/shared/Bottombar";
 import Header from "./components/shared/Header";
 
-const poppins = Poppins({ subsets: ["latin"], weight: ["200",'300',"400", "700"] });
+const poppins = Poppins({
+  subsets: ["latin"],
+  weight: ["200", "300", "400", "500", "700"],
+});
 
 export const metadata: Metadata = {
   title: "E-shop",
@@ -18,10 +21,10 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={poppins.className}>
+      <body className={`${poppins.className} text-xs`}>
         <Header />
         <main>{children}</main>
-        {/* <Bottombar /> */}
+        <Bottombar />
       </body>
     </html>
   );
