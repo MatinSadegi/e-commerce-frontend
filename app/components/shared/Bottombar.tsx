@@ -1,3 +1,5 @@
+"use client";
+
 import React from "react";
 import Link from "next/link";
 
@@ -93,7 +95,8 @@ const Bottombar = () => {
       </div>
       <div className="border-t text-center p-4">
         <p>
-          © 2023 <strong> Reid </strong>Mede With ❤️ By <span className=" text-orange">KOAL</span>
+          © 2023 <strong> Reid </strong>Mede With ❤️ By{" "}
+          <span className=" text-orange">KOAL</span>
         </p>
         <ul className="mt-2 flex justify-center gap-5 text-gray-400">
           <Link href="/#">Order History</Link>
