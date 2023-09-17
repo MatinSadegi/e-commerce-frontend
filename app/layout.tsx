@@ -4,6 +4,7 @@ import { Poppins } from "next/font/google";
 import Bottombar from "./components/shared/Bottombar";
 import Header from "./components/shared/Header";
 import Banner from "./components/Banner";
+import Offers from "./components/Offers";
 
 const poppins = Poppins({
   subsets: ["latin"],
@@ -25,6 +26,7 @@ export default function RootLayout({
       <body className={`${poppins.className} text-xs`}>
         <Header />
         <Banner/>
+        <Offers/>
         <main>{children}</main>
         {/* <Bottombar /> */}
       </body>

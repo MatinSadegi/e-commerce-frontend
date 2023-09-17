@@ -15,3 +15,9 @@ p {
   font-weight: 400;
 
 }
+
+@layer components {
+  .image-border{
+    @apply  after:opacity-0  relative after:transition-all after:w-full after:h-full after:border-[10px] after:absolute after:left-0 after:top-0 after:border-[rgba(0,0,0,0.15)] hover:after:opacity-100 
+  }
+}

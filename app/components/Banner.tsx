@@ -42,7 +42,7 @@ const Banner = () => {
   };
 
   return (
-    <div className=" overflow-hidden group translate-y-20 xl:translate-y-0">
+    <div className=" overflow-hidden group mt-20 xl:mt-0">
       <motion.div
         style={{ backgroundImage: `url(${slides[slideNum].url})` }}
         className={` h-[600px] w-screen bg-cover bg-center duration-700 items-center flex flex-col justify-around text-white `}
