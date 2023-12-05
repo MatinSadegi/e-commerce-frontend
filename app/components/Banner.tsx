@@ -42,7 +42,7 @@ const Banner = () => {
   };
 
   return (
-    <div className=" overflow-hidden group mt-20 xl:mt-0">
+    <div className=" overflow-hidden group relative  xl:mt-0">
       <motion.div
         style={{ backgroundImage: `url(${slides[slideNum].url})` }}
         className={` h-[600px] w-screen bg-cover bg-center duration-700 items-center flex flex-col justify-around text-white `}
@@ -78,6 +78,7 @@ const Banner = () => {
         <div className="flex gap-3 mt-10">
           {slides.map((slide, slideIndex) => (
             <span
+            key={slideIndex}
               className={`w-8 h-1 transition-all duration-1000  ${
                 slideIndex === slideNum ? "bg-orange" : "bg-white"
               }`}
@@ -86,7 +87,7 @@ const Banner = () => {
         </div>
       </motion.div>
 
-      <div className=" absolute hidden w-full lg:px-8 group-hover:flex justify-between top-[55%] ">
+      <div className=" absolute hidden w-full lg:px-8 group-hover:flex justify-between top-1/2 ">
         <img
           width="40"
           height="40"
