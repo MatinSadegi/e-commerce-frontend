@@ -3,9 +3,9 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev",
+    "dev": " next dev -p 4000",
     "build": "next build",
-    "start": "next start",
+    "start": " next start",
     "lint": "next lint"
   },
   "dependencies": {
@@ -13,6 +13,7 @@
     "@types/react": "18.2.21",
     "@types/react-dom": "18.2.7",
     "autoprefixer": "10.4.15",
+    "axios": "^1.6.2",
     "framer-motion": "^10.16.4",
     "next": "13.4.19",
     "postcss": "8.4.29",

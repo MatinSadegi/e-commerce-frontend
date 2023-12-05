@@ -3,12 +3,13 @@ import type { Metadata } from "next";
 import { Poppins } from "next/font/google";
 import Bottombar from "./components/shared/Bottombar";
 import Header from "./components/shared/Header";
+
 import Banner from "./components/Banner";
 import Offers from "./components/Offers";
 
 const poppins = Poppins({
   subsets: ["latin"],
-  weight: ["200", "300", "400", "500", "700"],
+  weight: ["200", "300", "400", "500","600" , "700"],
 });
 
 export const metadata: Metadata = {
@@ -28,7 +29,7 @@ export default function RootLayout({
         <Banner/>
         <Offers/>
         <main>{children}</main>
-        {/* <Bottombar /> */}
+        <Bottombar />
       </body>
     </html>
   );
