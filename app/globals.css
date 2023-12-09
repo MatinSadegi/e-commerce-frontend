@@ -3,17 +3,29 @@
 @tailwind utilities;
 
 
-h2 {
+h1 {
   font-weight: 700;
   font-size: 2rem;
 }
+h2 {
+  font-weight: 600;
+  font-size: 1.7rem;
+}
 h3 {
+  font-weight: 600;
+  font-size: 1.4rem;
+}
+h4 {
   font-weight: 500;
-  font-size: 0.9rem;
+  font-size: 1.2rem;
+}
+
+h5 {
+  font-weight: 500;
+  font-size: 1.1rem;
 }
 p {
   font-weight: 400;
-
 }
 
 @layer components {

@@ -1,13 +1,13 @@
-"use client"
+"use client";
 
-import React from 'react'
-import Image from 'next/image'
-import product1 from '@/public/images/product1.webp'
-import { ProductPropsType } from '@/app/types/types'
+import React from "react";
+import Image from "next/image";
+import product1 from "@/public/images/product1.webp";
+import { ProductType } from "@/app/types/types";
 
-
-
-const ProductCard:React.FC<ProductPropsType> = ({title,price,image,slug}) => {
+const ProductCard: React.FC<
+  Pick<ProductType, "title" | "price" | "slug" | "image">
+> = ({ title, price, image, slug }) => {
   return (
     <div className=" flex flex-col items-start group">
       <div className="relative cursor-pointer">
@@ -40,6 +40,6 @@ const ProductCard:React.FC<ProductPropsType> = ({title,price,image,slug}) => {
       </div>
     </div>
   );
-}
+};
 
-export default ProductCard
+export default ProductCard;
