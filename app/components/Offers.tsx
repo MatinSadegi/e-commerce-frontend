@@ -16,7 +16,7 @@ const Offers = () => {
         <Image
           src={bagImg}
           alt="bagOffer"
-          width={450}
+          width={600}
           height={200}
           placeholder="blur"
         />
@@ -34,7 +34,7 @@ const Offers = () => {
         <Image
           src={shoes}
           alt="bagOffer"
-          width={450}
+          width={600}
           height={200}
           placeholder="blur"
         />

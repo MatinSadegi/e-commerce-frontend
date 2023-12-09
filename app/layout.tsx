@@ -26,8 +26,6 @@ export default function RootLayout({
     <html lang="en">
       <body className={`${poppins.className} text-xs`}>
         <Header />
-        <Banner/>
-        <Offers/>
         <main>{children}</main>
         <Bottombar />
       </body>
