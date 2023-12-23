@@ -1,10 +1,23 @@
+"use client";
 import React from "react";
 import ProductCard from "./ProductCard";
 import { getProducts } from "@/app/services/productServices";
 import { ProductType } from "@/app/types/types";
+import { useQuery } from "@tanstack/react-query";
+// export const dynamic = "force-dynamic";
 
-const Products = async () => {
-  const products = await getProducts();
+const Products = () => {
+  const {data,isError,isPending,error} = useQuery({
+    queryKey: ["products"],
+    queryFn: getProducts,
+  });
+
+  // if (isPending) return <h1>Loading ...</h1>;
+  if (isError) {
+    console.log(error)
+  }
+  
+  
 
   return (
     <div>
@@ -29,7 +42,7 @@ const Products = async () => {
           </li>
         </ul>
         <div className=" mt-8 grid grid-cols-3 xl:grid-cols-4 justify-between max-w-[1200px] mx-auto  gap-7">
-          {products.map(
+          {data?.map(
             (
               product: Pick<ProductType, "title" | "price" | "slug" | "image">
             ) => {

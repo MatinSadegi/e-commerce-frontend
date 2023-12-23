@@ -22,3 +22,19 @@ export interface ProductType {
   totalRating: number;
   rating: number[];
 }
+
+export interface FormDataTypes {
+  name: string | undefined;
+  email: string | undefined;
+  password: string | undefined;
+}
+
+export interface AuthState {
+  name: string;
+  email: string;
+  token:string
+}
+export interface AuthContextType {
+  auth: AuthState | undefined;
+  setAuth: React.Dispatch<React.SetStateAction<AuthState>>;
+}

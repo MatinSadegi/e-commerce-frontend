@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+export const dynamic = "force-static";
 import { getProducts, getProductBySlug } from "../services/productServices";
 import { ProductType } from "../types/types";
 import { Open_Sans } from "next/font/google";
@@ -10,7 +11,7 @@ import Link from "next/link";
 const openSans = Open_Sans({
   subsets: ["latin"],
   weight: ["300", "400", "500", "600", "700"],
-});
+}); 
 
 const Product = async ({ params }: { params: { slug: string } }) => {
   const { slug } = params;
@@ -35,7 +36,7 @@ const Product = async ({ params }: { params: { slug: string } }) => {
           href="/"
           className=" text-gray-400 transition-all hover:text-orange"
         >
-          Link
+          Home
         </Link>
         <span className=""> / Product Details</span>
       </div>
@@ -111,7 +112,7 @@ export default Product;
 
 export async function generateStaticParams() {
   const products = await getProducts();
-  return products.map((product: ProductType) => {
+  return products.slice(0, 6).map((product: ProductType) => {
     slug: product.slug;
   });
 }

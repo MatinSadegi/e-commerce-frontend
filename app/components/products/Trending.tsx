@@ -1,3 +1,4 @@
+
 import React from "react";
 import ProductCard from "./ProductCard";
 import { getProducts } from "@/app/services/productServices";
@@ -5,7 +6,7 @@ import { ProductType } from "@/app/types/types";
 
 const Trending = async () => {
   const products = await getProducts();
-  const trendingProducts = products.filter(
+  const trendingProducts = products?.filter(
     (product: Pick<ProductType, "trending">) => product.trending === true
   );
   return (
@@ -16,7 +17,7 @@ const Trending = async () => {
         handwriting
       </p>
       <div className="mt-8 grid grid-cols-3 xl:grid-cols-4 justify-between max-w-[1200px] mx-auto  gap-7">
-        {trendingProducts.map(
+        {trendingProducts?.map(
           (
             product: Pick<ProductType, "title" | "price" | "slug" | "image">
           ) => {
