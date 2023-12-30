@@ -21,14 +21,14 @@ export default async function  Home() {
 
   const dehydrateState = dehydrate(queryClient);
   return (
-    <main className=" w-[96%] flex flex-col items-center mx-auto  ">
+    <main className=" w-full flex flex-col items-center mx-auto overflow-hidden  ">
       <Banner />
       <Offers />
       <HydrationBoundary state={dehydrateState}>
         <Products />
       </HydrationBoundary>
       <Collection />
-      {/* <Trending /> */}
+      <Trending />
     </main>
   );
 }
