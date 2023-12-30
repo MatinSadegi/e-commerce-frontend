@@ -1,3 +1,5 @@
+import { StaticImport } from "next/dist/shared/lib/get-img-props";
+
 export interface ProductPropsType {
   title: string;
   price: number;
@@ -11,7 +13,7 @@ export interface ProductType {
   subcategory: string;
   price: number;
   description: string;
-  image: { public_id: string; url: string };
+  image: { public_id: string; url: string};
   inventory: string;
   quantity: { sm: number; md: number; lg: number; xl: number };
   slug: string;
@@ -29,12 +31,3 @@ export interface FormDataTypes {
   password: string | undefined;
 }
 
-export interface AuthState {
-  name: string;
-  email: string;
-  token:string
-}
-export interface AuthContextType {
-  auth: AuthState | undefined;
-  setAuth: React.Dispatch<React.SetStateAction<AuthState>>;
-}

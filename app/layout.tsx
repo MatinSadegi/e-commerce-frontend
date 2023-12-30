@@ -6,7 +6,7 @@ import Header from "./components/shared/Header";
 import Provider from "./utils/Provider";
 import Banner from "./components/Banner";
 import Offers from "./components/Offers";
-import { AuthProvider } from "./context/AuthProvider";
+import { GlobalContextProvider } from "./context/store";
 
 const poppins = Poppins({
   subsets: ["latin"],
@@ -28,9 +28,9 @@ export default function RootLayout({
       <body className={`${poppins.className} text-xs`}>
         <Header />
         <main>
-          <AuthProvider>
+          <GlobalContextProvider>
             <Provider>{children}</Provider>
-          </AuthProvider>
+          </GlobalContextProvider>
         </main>
         <Bottombar />
       </body>
