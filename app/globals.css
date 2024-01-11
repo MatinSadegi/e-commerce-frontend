@@ -35,4 +35,7 @@ p {
   .spinner{
     @apply absolute w-4 h-4 rounded-full bg-orange ease-in-expo
   }
+  .cart-items{
+    @apply py-3 px-6 col-span-1 mx-auto
+  }
 }

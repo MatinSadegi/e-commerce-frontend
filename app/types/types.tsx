@@ -1,4 +1,3 @@
-import { StaticImport } from "next/dist/shared/lib/get-img-props";
 
 export interface ProductPropsType {
   title: string;
@@ -29,5 +28,12 @@ export interface FormDataTypes {
   name: string | undefined;
   email: string | undefined;
   password: string | undefined;
+}
+
+export interface CartType {
+  count: number;
+  size: string;
+  _id: string;
+  product:ProductType
 }
 
