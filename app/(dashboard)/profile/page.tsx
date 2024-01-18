@@ -29,7 +29,7 @@ const Profile = () => {
     queryFn: getProfile,
     retry: false,
   });
-  if (isFetching) {
+  if (isLoading) {
     return <LoadingSpinner/>;
   }
 

@@ -8,11 +8,11 @@ import { CartType } from "@/app/types/types";
 import Image from "next/image";
 
 const Cart = () => {
-  const { data, isFetching, isSuccess } = useQuery({
+  const { data, isLoading, isSuccess } = useQuery({
     queryKey: ["cart"],
     queryFn: getCart,
   });
-  if (isFetching) {
+  if (isLoading) {
     return (
       <div>
         <LoadingSpinner />
@@ -56,7 +56,6 @@ const Cart = () => {
                       src={item.product.image.url}
                       width={150}
                       height={150}
-                      objectFit="cover"
                       alt="product-image"
                     />
                     <span className=" w-48 justify-center border-l border-gray-300 h-full flex items-center font-medium">
