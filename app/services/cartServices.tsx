@@ -1,8 +1,9 @@
+import axios from "axios";
 import { app } from "../api/axios";
 import { CartType } from "../types/types";
 
 export async function getCart() {
-  const { data } = await app.get(`http://localhost:5000/api/cart`);
+  const { data } = await app.get("http://localhost:5000/api/cart");
   return data;
 }
 

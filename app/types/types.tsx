@@ -1,4 +1,3 @@
-
 export interface ProductPropsType {
   title: string;
   price: number;
@@ -12,7 +11,7 @@ export interface ProductType {
   subcategory: string;
   price: number;
   description: string;
-  image: { public_id: string; url: string};
+  image: { public_id: string; url: string };
   inventory: string;
   quantity: { sm: number; md: number; lg: number; xl: number };
   slug: string;
@@ -34,6 +33,8 @@ export interface CartType {
   count: number;
   size: string;
   _id: string;
-  product:ProductType
+  productId: string;
+  title: string;
+  price: number;
+  image:  any ;
 }
-
