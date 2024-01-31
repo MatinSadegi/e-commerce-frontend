@@ -1,13 +1,29 @@
 import axios from "axios";
 const BASE_URL = "http://localhost:5000/api";
 
-const app = axios.create({ baseURL: BASE_URL, withCredentials: true });
+export const app = axios.create({ baseURL: BASE_URL, withCredentials: true });
+
 app.interceptors.request.use(
   (res) => res,
-//   (err) => Promise.reject(err)
-  (err) => {console.log(err)}
+  (err) => Promise.reject(err)
 );
 app.interceptors.response.use(
   (res) => res,
-  (err) => {console.log(err.config)}
+  async (err) => {
+    const originalConfig = err?.config;
+    if (err.response.status === 401 && !originalConfig?.sent) {
+      originalConfig.sent = true;
+         console.log(originalConfig.sent);
+      try {
+        const { data } = await axios.get(`${BASE_URL}/user/refresh`, {
+          withCredentials: true,
+        });
+     
+        if (data) return axios(originalConfig);
+      } catch (error) {
+      return Promise.reject(error);
+      }
+    }
+    return Promise.reject(err);
+  }
 );
