@@ -2,7 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-
 h1 {
   font-weight: 700;
   font-size: 2rem;
@@ -29,13 +28,14 @@ p {
 }
 
 @layer components {
-  .image-border{
-    @apply  after:opacity-0  relative after:transition-all after:w-full after:h-full after:border-[10px] after:absolute after:left-0 after:top-0 after:border-[rgba(0,0,0,0.15)] hover:after:opacity-100 
+  .image-border {
+    @apply after:opacity-0  relative after:transition-all after:w-full after:h-full after:border-[10px] after:absolute after:left-0 after:top-0 after:border-[rgba(0,0,0,0.15)] hover:after:opacity-100;
   }
-  .spinner{
-    @apply absolute w-4 h-4 rounded-full bg-orange ease-in-expo
+  .spinner {
+    @apply absolute w-4 h-4 rounded-full bg-orange ease-in-expo;
   }
-  .cart-items{
-    @apply py-3 px-6 col-span-1 mx-auto
+  .cart-items {
+    @apply py-3 px-6 col-span-1 mx-auto;
   }
+
 }

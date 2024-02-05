@@ -17,7 +17,7 @@ const config: Config = {
       keyframes: {
         one: {
           "0%": { transform: "scale(0)" },
-          "100%": { transform: "scale(1)" }, 
+          "100%": { transform: "scale(1)" },
         },
         two: {
           "0%": { transform: "translate(0,0)" },
@@ -30,6 +30,7 @@ const config: Config = {
       },
     },
   },
-  plugins: [],
+
+  plugins: [require("tailwindcss"), require("autoprefixer")],
 };
 export default config;
