@@ -1,14 +1,14 @@
 import axios from "axios";
 import { app } from "../api/axios";
 
-export async function getProducts() {
+export async function getProducts(queryString:string) {
   // try {
   //   const { data } = await axios.get("http://localhost:5000/api/product");
   //   return data;
   // } catch (error:any) {
   //   console.log(error)
   // }
-   const {data}  = await app.get("http://localhost:5000/api/product");
+   const {data}  = await app.get(`http://localhost:5000/api/product?${queryString}`);
    return data;
   // return fetch("http://localhost:5000/api/product", { cache: "no-store" })
   //   .then((res) => res.json())

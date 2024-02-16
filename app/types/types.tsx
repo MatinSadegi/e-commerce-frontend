@@ -1,3 +1,5 @@
+import React from "react";
+
 export interface ProductPropsType {
   title: string;
   price: number;
@@ -36,5 +38,20 @@ export interface CartType {
   productId: string;
   title: string;
   price: number;
-  image:  any ;
+  image: any;
 }
+
+export interface AttributeType {
+  name: string;
+  values: any;
+}
+
+export interface CheckBoxProps {
+  id:string;
+  name:string;
+  checked:boolean;
+  value:string;
+  label:string;
+  onChange :React.ChangeEventHandler
+}
+
