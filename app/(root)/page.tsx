@@ -1,6 +1,6 @@
 import Collection from "../components/Collection";
-import Products from "./products/Products";
-import Trending from "./products/Trending";
+import Products from "../components/shared/products/Products";
+import Trending from "../components/shared/products/Trending";
 import Offers from "../components/Offers";
 import Banner from "../components/Banner";
 import { HydrationBoundary, dehydrate } from "@tanstack/react-query";
@@ -12,12 +12,12 @@ export default async function Home() {
   try {
     await queryClient.prefetchQuery({
       queryKey: ["products"],
-      queryFn: getProducts,
+      queryFn: () => getProducts(""),
     });
   } catch (error) {
     console.log(error);
   }
-
+ 
   const dehydrateState = dehydrate(queryClient);
   return (
     <main className=" w-full flex flex-col items-center mx-auto overflow-hidden  ">
