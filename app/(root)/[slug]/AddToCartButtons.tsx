@@ -1,31 +1,30 @@
 "use client";
 import React, { useEffect, useState } from "react";
-import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
+import Image from "next/image";
+import { useMutation, useQueryClient } from "@tanstack/react-query";
 import { addToCart, getCart } from "@/app/services/cartServices";
+import { useGlobalContext } from "@/app/context/store";
 import useDropdown from "@/app/hooks/useDropdown";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import Image from "next/image";
 import minusIcon from "@/public/icons/minus-svgrepo-com.svg";
 import plusIcon from "@/public/icons/plus-svgrepo-com.svg";
 import grayMinusIcon from "@/public/icons/minus-gray.svg";
-import { useGlobalContext } from "@/app/context/store";
 
 interface AddToCartProps {
-  inStock: any;
+  count: any;
   productId: string;
 }
 
-const AddToCartButtons = ({ inStock, productId }: AddToCartProps) => {
-  const dropDownItems = Object.keys(inStock).map((key) => ({
-    [key]: inStock[key],
+const AddToCartButtons = ({ count, productId }: AddToCartProps) => {
+  const dropDownItems = Object.keys(count).map((key) => ({
+    [key]: count[key],
   }));
   const queryClient = useQueryClient();
   const { mutateAsync } = useMutation({
     mutationFn: addToCart,
     onSuccess: () => {
       queryClient.invalidateQueries({ queryKey: ["cart"] });
-
     },
   });
 
@@ -45,20 +44,16 @@ const AddToCartButtons = ({ inStock, productId }: AddToCartProps) => {
   }, [quantity]);
 
   const addToCartHandler = async () => {
-    if (addToCartItems.count > inStock[addToCartItems.size + ""]) {
-      toast.error("out of stock");
-    } else {
-      try {
-        await mutateAsync(addToCartItems);
-      } catch (error: any) {
-        toast.error(error?.response?.data.message);
-      }
+    try {
+      await mutateAsync(addToCartItems);
+    } catch (error: any) {
+      toast.error(error?.response?.data.message);
     }
   };
 
   return (
     <div>
-      <div className="flex w-1/2 justify-between items-center my-2">
+      <div className="flex gap-4 w-1/3 justify-between items-center my-2">
         <p className=" text-sm font-bold">Size</p>
         <ListDropdown />
       </div>
@@ -67,7 +62,7 @@ const AddToCartButtons = ({ inStock, productId }: AddToCartProps) => {
           <p className=" text-sm font-bold">Quantity</p>
           <div className=" shadow shadow-gray-300 flex items-center h-full px-3  border-gray-300 rounded outline-gray-500 outline-offset-1">
             <Image
-              src={quantity === 1 ? grayMinusIcon : minusIcon}
+              src={count === 1 ? grayMinusIcon : minusIcon}
               alt="minus-icon"
               className=" cursor-pointer"
               onClick={() => {
@@ -86,8 +81,9 @@ const AddToCartButtons = ({ inStock, productId }: AddToCartProps) => {
               alt="plus-icon"
               className=" cursor-pointer"
               onClick={() => {
-                if (quantity === inStock[state + ""]) {
-                  setQuantity(inStock[state + ""]);
+                if (quantity === count[state + ""]) {
+                  setQuantity(count[state + ""]);
+                  toast.error("this product out of stock");
                 } else {
                   setQuantity(quantity + 1);
                 }

@@ -62,7 +62,7 @@ const Product = async ({ params }: { params: { slug: string } }) => {
           </div>
           <p className="font-medium text-sm">${price.toFixed(2)}</p>
           <p className="text-gray-500 leading-5">{description}</p>
-          <AddToCartButtons inStock={quantity} productId={_id} />
+          <AddToCartButtons count={quantity} productId={_id} />
         </div>
       </div>
       <div className=" w-full border border-gray-300 mt-10">

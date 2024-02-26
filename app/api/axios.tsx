@@ -13,7 +13,6 @@ app.interceptors.response.use(
     const originalConfig = err?.config;
     if (err.response.status === 401 && !originalConfig?.sent) {
       originalConfig.sent = true;
-         console.log(originalConfig.sent);
       try {
         const { data } = await axios.get(`${BASE_URL}/user/refresh`, {
           withCredentials: true,
