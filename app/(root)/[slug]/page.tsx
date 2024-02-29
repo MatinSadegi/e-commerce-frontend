@@ -6,7 +6,7 @@ import starIcon from "@/public/icons/star-favorite-1499-svgrepo-com.svg";
 import Image from "next/image";
 import Link from "next/link";
 import AddToCartButtons from "./AddToCartButtons";
-export const dynamic = "force-static";
+export const dynamic = "auto";
 
 const openSans = Open_Sans({
   subsets: ["latin"],
@@ -24,10 +24,8 @@ const Product = async ({ params }: { params: { slug: string } }) => {
     category,
     subcategory,
     brand,
-    _id
+    _id,
   } = await getProductBySlug(slug);
-
- 
 
   return (
     <div
@@ -96,8 +94,8 @@ const Product = async ({ params }: { params: { slug: string } }) => {
 export default Product;
 
 export async function generateStaticParams() {
-  const products = await getProducts();
-  return products.slice(0, 6).map((product: ProductType) => {
-    slug: product.slug;
-  });
+  const products = await getProducts("");
+  return products.slice(0, 3).map((product: ProductType) => ({
+    slug: product.slug,
+  }));
 }

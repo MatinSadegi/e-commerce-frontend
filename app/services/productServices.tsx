@@ -24,10 +24,3 @@ export async function getProductBySlug(slug: string) {
   const { data } = await axios.get(`http://localhost:5000/api/product/${slug}`);
   return data;
 }
-
-export async function useGetProductBySlug(slug: string) {
-  return await queryClient.prefetchQuery({
-    queryKey: ["product"],
-    queryFn: () => getProductBySlug(slug),
-  });
-}

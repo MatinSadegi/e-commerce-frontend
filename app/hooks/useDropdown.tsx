@@ -7,16 +7,16 @@ export default function useDropdown(
   defaultState: string,
   options: { [x: string]: number }[]
 ) {
-  const [state, setState] = useState(defaultState);
+  const [state, setState] = useState(defaultState); 
   const [dropDown, setDropDown] = useState(false);
   const DropdownMaker = () => (
     <div
-      className={`w-16 relative text-gray-500 text-sm font-light ${
+      className={`w-full relative text-gray-500 text-sm font-light ${
         dropDown ? " overflow-visible" : " overflow-hidden"
       } `}
     >
       <div
-        className={`flex justify-between rounded p-2 transition-all cursor-pointer border  relative z-0 overflow-hidden ${
+        className={`flex justify-between w-full rounded p-2 transition-all cursor-pointer border  relative z-0 overflow-hidden ${
           dropDown ? "border-gray-500" : "border-gray-300"
         }`}
         onClick={() => setDropDown((prev) => !prev)}
@@ -32,7 +32,7 @@ export default function useDropdown(
       </div>
 
       <ul
-        className={`flex flex-col  w-full absolute z-10 max-h-[150px] overflow-y-auto scrollbar `}
+        className={`flex flex-col  w-full  absolute z-10 max-h-[150px] overflow-y-auto scrollbar `}
       >
         {options.map((item: object) => {
           return (

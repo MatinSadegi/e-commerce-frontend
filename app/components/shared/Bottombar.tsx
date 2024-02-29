@@ -6,7 +6,7 @@ import Link from "next/link";
 const Bottombar = () => {
   return (
     <footer className="pt-20">
-      <div className="grid grid-rows-3 grid-cols-2 gap-5 p-14 border-t grid-flow-col md:grid-flow-row  md:grid-rows-2 md:px-6 lg:grid-rows-1 lg:grid-cols-4 ">
+      <div className="grid grid-rows-3 grid-cols-2 gap-5 p-14 border-t grid-flow-col md:grid-flow-row  md:grid-rows-2 md:px-8 lg:grid-rows-1 lg:grid-cols-4 ">
         <div className=" text-gray-400  ">
           <h3>Information</h3>
           <ul className="flex flex-col mt-4 gap-3">
@@ -95,8 +95,8 @@ const Bottombar = () => {
       </div>
       <div className="border-t text-center p-4">
         <p>
-          © 2023 <strong> Reid </strong>Mede With ❤️ By{" "}
-          <span className=" text-orange">KOAL</span>
+          © 2024 <strong> Reid </strong>Mede With ❤️ By{" "}
+          <span className=" text-orange">Matin.S</span>
         </p>
         <ul className="mt-2 flex justify-center gap-5 text-gray-400">
           <Link href="/#">Order History</Link>
