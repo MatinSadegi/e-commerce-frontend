@@ -5,6 +5,7 @@ import Bottombar from "../components/shared/Bottombar";
 import Header from "../components/shared/Header";
 import Provider from "../utils/Provider";
 import { GlobalContextProvider } from "../context/store";
+import {ReactQueryDevtools} from "@tanstack/react-query-devtools"
 
 const poppins = Poppins({
   subsets: ["latin"],
@@ -30,6 +31,7 @@ export default function RootLayout({
             <main>{children}</main>
             <Bottombar />
           </GlobalContextProvider>
+            <ReactQueryDevtools initialIsOpen={false} />
         </Provider>
       </body>
     </html>

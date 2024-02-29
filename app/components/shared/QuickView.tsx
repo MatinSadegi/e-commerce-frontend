@@ -82,7 +82,7 @@ const QuickView: React.FC = () => {
             />
           )}
         </div>
-        <div className="w-3/5 py-2">
+        <div className="w-3/5 py-2 text-left">
           <h4>{title}</h4>
           <p className=" my-5 text-base text-orange ">${price?.toFixed(2)}</p>
           <p className=" leading-5  text-gray-500">{description}</p>

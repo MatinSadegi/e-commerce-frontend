@@ -2,6 +2,7 @@ import React from "react";
 import ProductCard from "./ProductCard";
 import { getProducts } from "@/app/services/productServices";
 import { ProductType } from "@/app/types/types";
+export const dynamic = "force-dynamic";
 
 const Trending = async () => {
   const products = await getProducts('');
