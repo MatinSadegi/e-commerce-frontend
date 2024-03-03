@@ -15,11 +15,11 @@ export interface ProductType {
   description: string;
   image: { public_id: string; url: string };
   inventory: string;
-  quantity: { sm: number; md: number; lg: number; xl: number };
+  quantity: { sm: number; md: number; lg: number; xl: number } | any;
   slug: string;
   brand: string;
   trending: boolean;
-  _id: string;
+  _id: string ;
   sold: number;
   totalRating: number;
   rating: number[];
@@ -31,7 +31,10 @@ export interface FormDataTypes {
   password: string | undefined;
 }
 
-export interface CartType {
+
+
+export interface CartProductsType {
+ 
   count: number;
   size: string;
   _id: string;
@@ -41,17 +44,33 @@ export interface CartType {
   image: any;
 }
 
+export interface CartType {
+  cartTotal: number;
+  cartCount: number;
+  orderBy: string;
+  discount:number |undefined;
+  _id: string;
+  products: {
+    count: number;
+    image: { public_id: string; url: string };
+    price: number;
+    productId: string;
+    size: string;
+    title: string;
+    _id: string;
+  }[];
+}
+
 export interface AttributeType {
   name: string;
   values: any;
 }
 
 export interface CheckBoxProps {
-  id:string;
-  name:string;
-  checked:boolean;
-  value:string;
-  label:string;
-  onChange :React.ChangeEventHandler
+  id: string;
+  name: string;
+  checked: boolean;
+  value: string;
+  label: string;
+  onChange: React.ChangeEventHandler;
 }
-

@@ -11,7 +11,7 @@ const useMediaQuery = (): WindowDimentions => {
     width: undefined,
     height: undefined,
   });
-  useEffect(() => {
+  useEffect(() => { 
     function handleResize(): void {
       setMediaQuery({
         width: window.innerWidth,
