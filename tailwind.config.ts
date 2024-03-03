@@ -10,6 +10,7 @@ const config: Config = {
     extend: {
       colors: {
         orange: "#f97316",
+        lightOrange: "#fed7aa",
       },
       transitionTimingFunction: {
         "in-expo": "cubic-bezier(0, 1, 1, 0)",
