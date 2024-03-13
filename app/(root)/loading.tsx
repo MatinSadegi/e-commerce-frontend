@@ -3,7 +3,9 @@ import LoadingSpinner from '../utils/LoadingSpinner'
 
 const Loading = () => {
   return (
-    <div><LoadingSpinner/></div>
+    <div>
+      <LoadingSpinner/>
+    </div>
   )
 }
 

@@ -10,23 +10,47 @@ const Bottombar = () => {
         <div className=" text-gray-400  ">
           <h3>Information</h3>
           <ul className="flex flex-col mt-4 gap-3">
-            <Link href="/#">About Us</Link>
-            <Link href="/#">Delivery Information</Link>
-            <Link href="/#">Privacy Policy</Link>
-            <Link href="/#">Terms & Conditions</Link>
-            <Link href="/#">Contact Us</Link>
-            <Link href="/#">Returns</Link>
+            <Link href="/#" className=" hover:text-orange">
+              About Us
+            </Link>
+            <Link href="/#" className=" hover:text-orange">
+              Delivery Information
+            </Link>
+            <Link href="/#" className=" hover:text-orange">
+              Privacy Policy
+            </Link>
+            <Link href="/#" className=" hover:text-orange">
+              Terms & Conditions
+            </Link>
+            <Link href="/#" className=" hover:text-orange">
+              Contact Us
+            </Link>
+            <Link href="/#" className=" hover:text-orange">
+              Returns
+            </Link>
           </ul>
         </div>
         <div className=" text-gray-400  order-last md:order-none ">
           <h3>Extras</h3>
           <ul className="flex flex-col mt-4 gap-3">
-            <Link href="/#">Brands</Link>
-            <Link href="/#">Gift Certificates</Link>
-            <Link href="/#">Affiliate</Link>
-            <Link href="/#">Specials</Link>
-            <Link href="/#">Site Map</Link>
-            <Link href="/#">My Account</Link>
+            <Link href="/#" className=" hover:text-orange">
+              Brands
+            </Link>
+            <Link href="/#" className=" hover:text-orange">
+              Gift Certificates
+            </Link>
+            <Link href="/#" className=" hover:text-orange">
+              Affiliate
+            </Link>
+            <Link href="/#" className=" hover:text-orange">
+              Specials
+            </Link>
+            <Link href="/#" className=" hover:text-orange">
+              Site Map
+            </Link>
+            <Link href="/#" className=" hover:text-orange">
+              My Account
+            </Link>
           </ul>
         </div>
         <div className="col-span-2 md:col-span-1">
@@ -76,7 +100,7 @@ const Bottombar = () => {
           </ul>
         </div>
         <div className=" flex flex-col col-span-2 md:col-span-1 gap-3">
-          <h3>Join Our Newsletter Now</h3>
+          <h3 className=" leading-7">Join Our Newsletter Now</h3>
           <p className=" leading-6">
             Exceptional quality. Ethical factories. Sign up to enjoy free U.S.
             shipping and returns on your first order.

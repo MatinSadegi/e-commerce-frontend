@@ -58,7 +58,7 @@ const Product = async ({ params }: { params: { slug: string } }) => {
             <Image src={starIcon} alt="star-icon" />
             <Image src={starIcon} alt="star-icon" />
           </div>
-          <p className="font-medium text-sm">${price.toFixed(2)}</p>
+          <p className="font-medium text-lg">${price.toFixed(2)}</p>
           <p className="text-gray-500 leading-5">{description}</p>
           <AddToCartButtons count={quantity} productId={_id} />
         </div>

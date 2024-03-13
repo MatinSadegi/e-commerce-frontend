@@ -1,19 +1,26 @@
 "use client";
-import React, { useState } from "react";
+import React from "react";
 import Image from "next/image";
 import { useMutation, useQueryClient } from "@tanstack/react-query";
-import { removeProductFromCart } from "@/app/services/cartServices";
+import { addToCart, removeProductFromCart } from "@/app/services/cartServices";
 import { CartProductsType, CartType } from "@/app/types/types";
 import { v4 as uuidv4 } from "uuid";
-import { ToastContainer, toast } from "react-toastify";
+
 import "react-toastify/dist/ReactToastify.css";
 import trashIcon from "@/public/icons/trash-alt-svgrepo-com(1).svg";
+import minusIcon from "@/public/icons/minus-svgrepo-com.svg";
+import plusIcon from "@/public/icons/plus-svgrepo-com.svg";
 
 const CartItems = ({ products }: { products: CartProductsType[] }) => {
-  const [quantity, setQuantity] = useState();
   const queryClient = useQueryClient();
   const removeMutation = useMutation({
     mutationFn: removeProductFromCart,
+    onSuccess: () => {
+      queryClient.invalidateQueries({ queryKey: ["cart"] });
+    },
+  });
+  const incrementMutation = useMutation({
+    mutationFn: addToCart,
     onSuccess: () => {
       queryClient.invalidateQueries({ queryKey: ["cart"] });
     },
@@ -28,16 +35,37 @@ const CartItems = ({ products }: { products: CartProductsType[] }) => {
     count: number;
   }): Promise<void> => {
     try {
+      console.log(removeMutation.isPending)
       const message = await removeMutation.mutateAsync({
         size,
         productId,
         count,
       });
-      toast.success(message);
     } catch (error: any) {
       console.log(error);
     }
   };
+
+  const incrementHandler = async ({
+    size,
+    id,
+    count,
+  }: {
+    size: string;
+    id: string;
+    count: number;
+  }) => {
+    try {
+      const message = await incrementMutation.mutateAsync({
+        size,
+        id,
+        count,
+      });
+    } catch (error: any) {
+      console.log(error);
+    }
+  };
+
   return (
     <div className="flex w-full overflow-x-scroll lg:overflow-visible border border-gray-300">
       <div className=" flex flex-col ">
@@ -89,11 +117,39 @@ const CartItems = ({ products }: { products: CartProductsType[] }) => {
                   {item.size}
                 </span>
                 <span className="w-32 justify-center border-l border-gray-300 h-full flex items-center font-medium">
-                  <input
-                    type="number" 
-                    className="border w-14 p-2 outline-none"
-                    defaultValue={item.count}
-                  />
+                  <div className="flex">
+                    <Image
+                      src={minusIcon}
+                      alt="minus-icon"
+                      className=" cursor-pointer"
+                      width={18}
+                      height={18}
+                      onClick={() =>
+                        removeHandler({
+                          size: item.size,
+                          productId: item.productId,
+                          count: 1,
+                        })
+                      }
+                    />
+                    <span className=" px-2 font-semibold text-sm text-orange">
+                      {item.count}
+                    </span>
+                    <Image
+                      src={plusIcon}
+                      alt="plus-icon"
+                      className=" cursor-pointer"
+                      width={18}
+                      height={18}
+                      onClick={() =>
+                        incrementHandler({
+                          size: item.size,
+                          id: item.productId,
+                          count: 1,
+                        })
+                      }
+                    />
+                  </div>
                 </span>
                 <span className="w-36 justify-center border-l border-gray-300 h-full flex items-center text-sm font-medium">
                   ${(item.count * item.price).toFixed(2)}
