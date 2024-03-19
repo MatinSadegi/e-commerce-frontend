@@ -13,7 +13,6 @@ const Products = () => {
   if (isError) {
     console.log(error);
   }
-  console.log(isPending)
   return (
     <div className=" grid grid-cols-3 xl:grid-cols-4 justify-between max-w-[1200px] mx-auto  gap-7">
       {data?.map((product: ProductType) => {

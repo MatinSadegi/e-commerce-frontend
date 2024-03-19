@@ -28,7 +28,7 @@ const SortTopBar = () => {
     router.push(pathname + "?" + createQueryString("sort", sort));
   }, [sort]);
   return (
-    <div className=" w-full border mt-6">
+    <div className=" w-full border mt-6 mb-8">
       <ul className=" flex items-center p-3 gap-4">
         <Image src={sortIcon} alt="sort-icon" />
         <span className="text-gray-800">sort : </span>

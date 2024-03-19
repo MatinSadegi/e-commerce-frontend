@@ -15,6 +15,10 @@ const config: Config = {
       transitionTimingFunction: {
         "in-expo": "cubic-bezier(0, 1, 1, 0)",
       },
+      boxShadow: {
+        '3xl': '0px 2px 8px 0px rgba(99, 99, 99, 0.2)',
+
+      },
       keyframes: {
         one: {
           "0%": { transform: "scale(0)" },
