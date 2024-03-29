@@ -35,7 +35,7 @@ const CartQuickView = ({ showCart }: { showCart: boolean }) => {
   if (cart?.products?.length)
     return (
       <div
-        className={`absolute text-black right-0 z-50 px-5 bg-white shadow-2xl rounded transition-all overflow-hidden ${
+        className={`absolute text-black right-0 z-50 px-5 bg-white shadow-2xl rounded transition-all overflow-hidden hidden sm:block ${
           showCart ? "opacity-100 w-[330px]" : "w-0 opacity-0"
         }`}
       >

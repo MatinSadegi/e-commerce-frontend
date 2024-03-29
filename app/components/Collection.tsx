@@ -6,7 +6,7 @@ import cBanner2 from '@/public/images/collection-banner2.webp'
 
 const Collection = () => {
   return (
-    <section className="flex gap-6 mb-14 text-white p-8">
+    <section className="flex flex-col gap-6 mb-14 text-white p-8 md:flex-row">
       <div className="relative image-border cursor-pointer">
         <Image src={cBanner1} alt="banner" />
         <div className=" absolute left-10 top-1/2 -translate-y-1/2 leading-8 flex flex-col items-center">

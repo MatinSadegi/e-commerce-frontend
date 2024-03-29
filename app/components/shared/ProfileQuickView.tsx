@@ -1,25 +1,27 @@
 "use client";
 import React from "react";
 import Image from "next/image";
+import { useRouter } from "next/navigation";
 import arrowIcon from "@/public/icons/arrow-next-small-svgrepo-com.svg";
 import basketIcon from "@/public/icons/basket-loaded-svgrepo-com.svg";
-import logoutIcon from '@/public/icons/logout-svgrepo-com(1).svg'
+import logoutIcon from "@/public/icons/logout-svgrepo-com(1).svg";
 
 interface UserProps {
   name: string;
   showProfile: boolean;
 }
-const ProfileQuickView = ({
-  name,
-  showProfile,
-}: UserProps) => {
+const ProfileQuickView = ({ name, showProfile }: UserProps) => {
+  const router = useRouter();
   return (
     <div
-      className={`absolute text-black right-12 top-12 z-50  bg-white shadow-2xl rounded transition-all overflow-hidden ${
+      className={`absolute text-black right-0 top-12 z-50  bg-white shadow-2xl rounded transition-all overflow-hidden sm:right-12 ${
         showProfile ? "opacity-100 w-[250px] h-[195px]" : "w-0 opacity-0 h-0"
       }`}
     >
-      <div className="flex   justify-between items-center p-5 transition-all hover:bg-gray-100">
+      <div
+        className="flex   justify-between items-center p-5 transition-all hover:bg-gray-100"
+        onClick={() => router.push("/profile")}
+      >
         <p className=" text-sm font-bold">{name}</p>
         <Image src={arrowIcon} alt="next-arrow-icon" />
       </div>

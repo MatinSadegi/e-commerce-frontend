@@ -11,7 +11,7 @@ const caveat = Caveat({
 
 const Offers = () => {
   return (
-    <div className="grid grid-cols-3 gap-5 p-8 ">
+    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 p-8  ">
       <div className="image-border ">
         <Image
           src={bagImg}
@@ -24,7 +24,7 @@ const Offers = () => {
 
       <div className=" bg-blue-300 w-full text-center py-2 lg:py-5 flex flex-col justify-between text-white image-border">
         <p>Take an Extra</p>
-        <p className={`text-5xl lg:text-8xl tracking-wide ${caveat.className}`}>
+        <p className={`py-6 lg:py-0 text-8xl tracking-wide ${caveat.className}`}>
           30%
         </p>
         <p className="">Almost Everything Store</p>
