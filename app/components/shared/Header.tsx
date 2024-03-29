@@ -31,7 +31,7 @@ const Header = () => {
  
   return (
     <div
-      className={`text-xs max-w-screen relative flex justify-between p-6 md:p-0 ${
+      className={`text-xs max-w-screen relative flex justify-between p-6 md:p-0 z-30 ${
         user.isLoading ? " blur" : "blur-0"
       }`}
     >
@@ -51,7 +51,7 @@ const Header = () => {
         />
       </div>
       <div
-        className={` absolute h-screen w-full bg-[rgba(0,0,0,0.4)] top-0 left-0 z-10 md:hidden ${
+        className={` absolute h-screen w-screen bg-[rgba(0,0,0,0.4)] top-0 left-0 z-10 md:hidden ${
           showMenu ? " block " : " hidden "
         }`}
         onClick={() => setShowMenu(false)}
@@ -79,7 +79,7 @@ const Header = () => {
           {user.isSuccess ? (
             <div className="flex items-center cursor-pointer">
               <div
-                className={`flex items-center transition-all p-2 rounded-xl ${
+                className={`flex items-center transition-all p-2 rounded-xl sm:flex ${
                   showProfile ? "bg-lightOrange" : "bg-transparent"
                 }`}
                 onClick={() => setShowProfile(!showProfile)}
@@ -112,8 +112,6 @@ const Header = () => {
 
           <div
             className="relative ml-2 "
-            onMouseEnter={() => setShowCart(true)}
-            onMouseLeave={() => setShowCart(false)}
             onClick={() => router.push("/checkout/cart")}
           >
             <img
@@ -121,6 +119,8 @@ const Header = () => {
               height="30"
               src="https://img.icons8.com/windows/70/shopping-bag.png"
               alt="shopping-bag"
+              onMouseEnter={() => setShowCart(true)}
+              onMouseLeave={() => setShowCart(false)}
             />
             <span
               className={` absolute -top-0.5 -left-0.5 w-4 h-4 text-center bg-orange text-white rounded-[150%] text-[10px] ${

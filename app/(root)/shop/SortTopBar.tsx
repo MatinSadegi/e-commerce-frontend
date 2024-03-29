@@ -29,34 +29,36 @@ const SortTopBar = () => {
   }, [sort]);
   return (
     <div className=" w-full border mt-6 mb-8">
-      <ul className=" flex items-center p-3 gap-4">
+      <div className=" flex items-center p-3 gap-4">
         <Image src={sortIcon} alt="sort-icon" />
         <span className="text-gray-800">sort : </span>
-        <li
-          className={` px-2 py-1  font-medium  cursor-pointer ${
-            sort === "newest" ? "text-orange" : "text-gray-500"
-          }`}
-          onClick={(e) => setSort(e.currentTarget.innerHTML)}
-        >
-          newest
-        </li>
-        <li
-          className={` px-2 py-1  font-medium  cursor-pointer ${
-            sort === "cheapest" ? "text-orange" : "text-gray-500"
-          }`}
-          onClick={(e) => setSort(e.currentTarget.innerHTML)}
-        >
-          cheapest
-        </li>
-        <li
-          className={` px-2 py-1  font-medium  cursor-pointer ${
-            sort === "most expensive" ? "text-orange" : "text-gray-500"
-          }`}
-          onClick={(e) => setSort(e.currentTarget.innerHTML)}
-        >
-          most expensive
-        </li>
-      </ul>
+        <ul className=" flex flex-col sm:flex-row">
+          <li
+            className={` px-2 py-1  font-medium  cursor-pointer ${
+              sort === "newest" ? "text-orange" : "text-gray-500"
+            }`}
+            onClick={(e) => setSort(e.currentTarget.innerHTML)}
+          >
+            newest
+          </li>
+          <li
+            className={` px-2 py-1  font-medium  cursor-pointer ${
+              sort === "cheapest" ? "text-orange" : "text-gray-500"
+            }`}
+            onClick={(e) => setSort(e.currentTarget.innerHTML)}
+          >
+            cheapest
+          </li>
+          <li
+            className={` px-2 py-1  font-medium  cursor-pointer ${
+              sort === "most expensive" ? "text-orange" : "text-gray-500"
+            }`}
+            onClick={(e) => setSort(e.currentTarget.innerHTML)}
+          >
+            most expensive
+          </li>
+        </ul>
+      </div>
     </div>
   );
 };

@@ -4,23 +4,20 @@ import {
   useRouter,
   useSearchParams,
   usePathname,
-  ReadonlyURLSearchParams,
 } from "next/navigation";
-import { AttributeType } from "@/app/types/types";
+import { useGetAttributes } from "@/app/services/attributeServices";
 import Slider from "rc-slider";
 import "rc-slider/assets/index.css";
 import CheckBox from "@/app/utils/CheckBox";
 
-interface FilterProps {
-  attributes: object[];
-}
-
-const FilterSideBar = ({ attributes }: FilterProps) => {
+const FilterSideBar = () => {
+  const { data, isError, isPending, error, isSuccess }: any =
+    useGetAttributes();
   const router = useRouter();
   const pathname = usePathname();
   const searchParams = useSearchParams();
   const [rangeValues, setRangeValues] = useState([5, 500]);
-  const [selectedAttributes, setSelectedAttributes] = useState<
+  const [selectedAttributes, setSelectedAttributes] = useState< 
     Record<string, string[]>
   >({});
 
@@ -78,9 +75,8 @@ const FilterSideBar = ({ attributes }: FilterProps) => {
       }
     }
   };
-
   return (
-    <div className=" w-[210px]">
+    <div className=" min-w-[200px] order-2 lg:order-first">
       <div className="w-full">
         <p className=" text-sm font-medium">Filter By Price</p>
         <Slider
@@ -100,9 +96,9 @@ const FilterSideBar = ({ attributes }: FilterProps) => {
           <span>${rangeValues[0]}</span> - <span>${rangeValues[1]}</span>
         </p>
       </div>
-      {attributes.map((item: any) => {
+      {data?.map((item: any) => {
         return (
-          <div key={item._id} className=" mt-4">
+          <div key={item._id} className=" mt-6">
             <p className=" text-sm font-semibold mb-1">{item?.name}</p>
             <ul className="flex flex-col gap-1">
               {item.values.map((val: string) => {

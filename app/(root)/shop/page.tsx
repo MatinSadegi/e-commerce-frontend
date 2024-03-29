@@ -1,24 +1,36 @@
-"use client";
 import React from "react";
 import { ReadonlyURLSearchParams } from "next/navigation";
 import queryString from "query-string";
 import { getProducts } from "@/app/services/productServices";
-import { getAttributes } from "@/app/services/attributeServices";
-import ProductCard from "@/app/components/shared/products/ProductCard";
-import { ProductType } from "@/app/types/types";
 import Link from "next/link";
 import FilterSideBar from "./FilterSideBar";
 import SortTopBar from "./SortTopBar";
+import getQueryClient from "@/app/utils/getQueryClient";
+import { HydrationBoundary, dehydrate } from "@tanstack/react-query";
+import { getAttributes } from "@/app/services/attributeServices";
+import QuickView from "@/app/components/shared/QuickView";
+import { ProductType } from "@/app/types/types";
+import ProductCard from "@/app/components/shared/products/ProductCard";
+export const dynamic = "force-dynamic";
 
 const Shop = async ({
   searchParams,
 }: {
   searchParams: ReadonlyURLSearchParams;
 }) => {
-  const products = await getProducts(queryString.stringify(searchParams));
-  const attributes = await getAttributes();
+  const queryClient = getQueryClient();
+  const data = await queryClient.fetchQuery({
+    queryKey: ["products"],
+    queryFn: () => getProducts(queryString.stringify(searchParams)),
+  });
+  await queryClient.prefetchQuery({
+    queryKey: ["attribute"],
+    queryFn: () => getAttributes(),
+  });
+
+  const dehydrateState = dehydrate(queryClient);
   return (
-    <div className="max-w-md md:max-w-[1200px] mx-auto mt-5 px-3">
+    <div className="max-w-[1200px] mx-auto mt-5 px-5 ">
       <div className="text-sm mb-9">
         <Link
           href="/"
@@ -28,27 +40,19 @@ const Shop = async ({
         </Link>
         <span className=""> / Shop</span>
       </div>
-      <div className="flex gap-10">
-        <FilterSideBar attributes={attributes} />
-        <div>
-          <h2>Shop</h2>
-          <SortTopBar />
-          <div className=" mt-8 grid grid-cols-3 xl:grid-cols-4 justify-between max-w-[950px] mx-auto  gap-7">
-            {products?.map(
-              (
-                product: Pick<
-                  ProductType,
-                  | "title"
-                  | "price"
-                  | "slug"
-                  | "image"
-                  | "description"
-                  | "quantity"
-                >
-              ) => {
+      <HydrationBoundary state={dehydrateState}>
+        <div className="flex flex-col gap-10 lg:flex-row">
+          <FilterSideBar />
+          <div className=" flex flex-col">
+            <h2 >Shop</h2>
+            <SortTopBar />
+
+            <div className=" grid sm:grid-cols-2  md:grid-cols-3 xl:grid-cols-4 justify-between max-w-[1200px] mx-auto gap-7">
+              {data?.map((product: ProductType) => {
                 return (
                   <ProductCard
-                    key={product.slug}
+                    key={product._id}
+                    _id={product._id}
                     title={product.title}
                     price={product.price}
                     image={product.image}
@@ -57,11 +61,12 @@ const Shop = async ({
                     quantity={product.quantity}
                   />
                 );
-              }
-            )}
+              })}
+              <QuickView />
+            </div>
           </div>
         </div>
-      </div>
+      </HydrationBoundary>
     </div>
   );
 };
