@@ -6,7 +6,7 @@ import starIcon from "@/public/icons/star-favorite-1499-svgrepo-com.svg";
 import Image from "next/image";
 import Link from "next/link";
 import AddToCartButtons from "./AddToCartButtons";
-export const dynamic = "auto";
+export const dynamic = "force-static";
 
 const openSans = Open_Sans({
   subsets: ["latin"],
