@@ -7,6 +7,7 @@ import { GlobalContextProvider } from "../context/store";
 const poppins = Poppins({
   subsets: ["latin"],
   weight: ["200", "300", "400", "500", "600", "700"],
+  display:'swap'
 });
 
 export const metadata: Metadata = {

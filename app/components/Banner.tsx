@@ -8,6 +8,7 @@ import Link from "next/link";
 const caveat = Caveat({
   subsets: ["latin"],
   weight: ["700"],
+  display:"swap"
 });
 
 const Banner = () => {

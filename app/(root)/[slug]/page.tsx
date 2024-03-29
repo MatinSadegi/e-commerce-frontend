@@ -11,6 +11,7 @@ export const dynamic = "auto";
 const openSans = Open_Sans({
   subsets: ["latin"],
   weight: ["300", "400", "500", "600", "700"],
+  display:'swap'
 });
 
 const Product = async ({ params }: { params: { slug: string } }) => {
