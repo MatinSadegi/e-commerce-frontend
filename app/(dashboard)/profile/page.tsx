@@ -1,5 +1,6 @@
 "use client";
 import Link from "next/link";
+import Image from "next/image";
 import React, { useState } from "react";
 import { useQuery } from "@tanstack/react-query";
 import Dashboard from "./Dashboard";
@@ -14,6 +15,7 @@ import "react-toastify/dist/ReactToastify.css";
 import Header from "@/app/components/shared/Header";
 import Bottombar from "@/app/components/shared/Bottombar";
 import LoadingSpinner from "@/app/utils/LoadingSpinner";
+import editIcon from "@/public/icons/edit-3-svgrepo-com.svg";
 
 const Profile = () => {
   const profileItems = [
@@ -30,7 +32,7 @@ const Profile = () => {
     retry: false,
   });
   if (isLoading) {
-    return <LoadingSpinner/>;
+    return <LoadingSpinner />;
   }
 
   if (isError) {
@@ -38,7 +40,7 @@ const Profile = () => {
   }
   if (isSuccess)
     return (
-      <> 
+      <>
         <Header />
         <div className=" max-w-[1200px] mx-auto mt-10">
           <div className="text-sm mb-9">
@@ -52,6 +54,17 @@ const Profile = () => {
           </div>
           <div className="flex">
             <div className="w-1/4 flex flex-col pr-5 gap-2">
+              <div className="p-3 bg-gray-100  rounded flex items-center justify-between mb-4">
+                <div className="">
+                  <h4> {data?.name}</h4>
+                  <p className="  mt-1">{data?.email}</p>
+                </div>
+                <Image
+                  src={editIcon}
+                  alt="edit-icon"
+                  className=" cursor-pointer"
+                />
+              </div>
               {profileItems.map((item: string) => {
                 return (
                   <button
@@ -72,9 +85,9 @@ const Profile = () => {
               ) : selectedItem === "Orders" ? (
                 <Orders />
               ) : selectedItem === "Addresses" ? (
-                <Addresses />
+                <Addresses addresses={data?.addresses} />
               ) : selectedItem === "Account Details" ? (
-                <AccountDetails />
+                <AccountDetails name={data?.name} email={data?.email}/>
               ) : (
                 <Logout />
               )}

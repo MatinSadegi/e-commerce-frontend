@@ -51,7 +51,7 @@ const Addresses = ({ addresses }: { addresses: [AddressTypes] }) => {
     }
   };
   return (
-    <div >
+    <div>
       <div
         className={` fixed left-0 top-0 z-50 w-screen h-screen bg-[rgba(0,0,0,0.2)] items-center ${
           newAddress ? "flex" : "hidden"
@@ -67,46 +67,46 @@ const Addresses = ({ addresses }: { addresses: [AddressTypes] }) => {
           <form className=" px-10 w-full" onSubmit={submitHandler}>
             <h4 className="mb-6">New Address</h4>
             <div className="w-full">
-              <label htmlFor="email">Name</label>
+              <label htmlFor="name">Name</label>
               <input
                 type="text"
-                name="email"
+                name="name"
                 className="w-full h-9 border mt-2 border-gray-300 outline-none px-4"
                 ref={nameRef}
               />
             </div>
             <div className="my-6">
-              <label htmlFor="email">City</label>
+              <label htmlFor="city">City</label>
               <input
                 type="text"
-                name="email"
+                name="city"
                 className="w-full h-9 border mt-2 border-gray-300 outline-none px-4"
                 ref={cityRef}
               />
             </div>
             <div>
-              <label htmlFor="email">Street Name</label>
+              <label htmlFor="streetName">Street Name</label>
               <input
                 type="text"
-                name="email"
+                name="streetName"
                 className="w-full h-9 border mt-2 border-gray-300 outline-none px-4"
                 ref={streetRef}
               />
             </div>
             <div className="my-6">
-              <label htmlFor="email">House Number</label>
+              <label htmlFor="houseNumber">House Number</label>
               <input
                 type="text"
-                name="email"
+                name="houseNumber"
                 className="w-full h-9 border mt-2 border-gray-300 outline-none px-4"
                 ref={houseRef}
               />
             </div>
             <div>
-              <label htmlFor="email">Phone Number</label>
+              <label htmlFor="phoneNumber">Phone Number</label>
               <input
                 type="text"
-                name="email"
+                name="phoneNumber"
                 className="w-full h-9 border mt-2 border-gray-300 outline-none px-4"
                 ref={phoneRef}
               />
