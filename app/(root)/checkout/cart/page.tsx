@@ -3,8 +3,7 @@ import React, { useRef, useState } from "react";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
 import { useQuery, useMutation, useQueryClient } from "@tanstack/react-query";
-import { getCart } from "@/app/services/cartServices";
-import { getProfile } from "@/app/services/authService";
+
 import { applyCoupon } from "@/app/services/couponServices";
 import LoadingSpinner from "@/app/utils/LoadingSpinner";
 import { ToastContainer, toast } from "react-toastify";
@@ -95,8 +94,12 @@ if(!cart){
             </p>
             <div className=" font-medium p-4 border border-gray-300">
               <div className="flex justify-between text-sm">
-                <p>Subtotal</p>
+                <p className="text-sm">Subtotal</p>
                 <p className="text-base">${cartTotal}.00</p>
+              </div>
+              <div className="flex justify-between text-sm my-2">
+                <p className="text-sm">Shipping</p>
+                <p className="text-base">$5.00</p>
               </div>
               <div
                 className={`justify-between text-sm my-4 text-red-500 ${
@@ -109,17 +112,17 @@ if(!cart){
                 </p>
               </div>
 
-              <div className="flex justify-between text-sm border-t border-gray-300 pt-5">
-                <p>Subtotal</p>
+              <div className="flex justify-between text-sm border-t border-gray-300 mt-4 pt-4">
+                <p>Total</p>
                 <p className="text-base">
                   $
                   {cart.discount
-                    ? (cartTotal - cart.discount).toFixed(2)
-                    : cartTotal.toFixed(2)}
+                    ? (cartTotal + 5 - cart.discount).toFixed(2)
+                    : (cartTotal+5).toFixed(2)}
                 </p>
               </div>
               <div className=" w-full flex justify-end mt-4">
-                <button className="bg-orange text-white text-end py-2.5 px-4 transition-all duration-500 hover:bg-black">
+                <button onClick={()=>router.push('/checkout/shipping')} className="bg-orange text-white text-end py-2.5 px-4 transition-all duration-500 hover:bg-black">
                   PROCEED TO CHECKOUT
                 </button>
                 <p className="text-3xl">{loading&& "loadingggg"}</p>

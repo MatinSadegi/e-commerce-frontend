@@ -35,7 +35,6 @@ const CartItems = ({ products }: { products: CartProductsType[] }) => {
     count: number;
   }): Promise<void> => {
     try {
-      console.log(removeMutation.isPending)
       const message = await removeMutation.mutateAsync({
         size,
         productId,
