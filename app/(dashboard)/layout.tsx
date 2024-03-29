@@ -1,15 +1,15 @@
 import "../globals.css";
 import type { Metadata } from "next";
-import { Poppins } from "next/font/google";
+// import { Poppins } from "next/font/google";
 import Provider from "../utils/Provider";
 import { GlobalContextProvider } from "../context/store";
 
-const poppins = Poppins({
-  subsets: ["latin"],
-  weight: ["200", "300", "400", "500", "600", "700"],
-  display:'swap',
-  adjustFontFallback: false
-});
+// const poppins = Poppins({
+//   subsets: ["latin"],
+//   weight: ["200", "300", "400", "500", "600", "700"],
+//   display:'swap',
+//   adjustFontFallback: false
+// });
 
 export const metadata: Metadata = {
   title: "E-shop",
@@ -23,7 +23,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={`${poppins.className} text-xs`}>
+      <body className={` text-xs`}>
         <Provider>
           <GlobalContextProvider>{children}</GlobalContextProvider>
         </Provider>
