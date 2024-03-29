@@ -1,16 +1,16 @@
 "use client";
 
 import React, { useState } from "react";
-import { Caveat } from "next/font/google";
+// import { Caveat } from "next/font/google";
 import { motion } from "framer-motion";
 import Link from "next/link";
 
-const caveat = Caveat({
-  subsets: ["latin"],
-  weight: ["700"],
-  display: "swap",
-  adjustFontFallback: false,
-});
+// const caveat = Caveat({
+//   subsets: ["latin"],
+//   weight: ["700"],
+//   display: "swap",
+//   adjustFontFallback: false,
+// });
 
 const Banner = () => {
   const slides = [
@@ -53,7 +53,7 @@ const Banner = () => {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 1 }}
-          className={` text-6xl lg:text-8xl text-center mt-24 ${caveat.className}`}
+          className={` text-6xl lg:text-8xl text-center mt-24 `}
         >
           {slides[slideNum].title}
         </motion.h2>

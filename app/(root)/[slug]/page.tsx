@@ -1,19 +1,19 @@
 import React from "react";
 import { getProducts, getProductBySlug } from "../../services/productServices";
 import { ProductType } from "../../types/types";
-import { Open_Sans } from "next/font/google";
+// import { Open_Sans } from "next/font/google";
 import starIcon from "@/public/icons/star-favorite-1499-svgrepo-com.svg";
 import Image from "next/image";
 import Link from "next/link";
 import AddToCartButtons from "./AddToCartButtons";
 export const dynamic = "force-static";
 
-const openSans = Open_Sans({
-  subsets: ["latin"],
-  weight: ["300", "400", "500", "600", "700"],
-  display: "swap",
-  adjustFontFallback: false,
-});
+// const openSans = Open_Sans({
+//   subsets: ["latin"],
+//   weight: ["300", "400", "500", "600", "700"],
+//   display: "swap",
+//   adjustFontFallback: false,
+// });
 
 const Product = async ({ params }: { params: { slug: string } }) => {
   const { slug } = params;
@@ -31,7 +31,7 @@ const Product = async ({ params }: { params: { slug: string } }) => {
 
   return (
     <div
-      className={`${openSans.className} max-w-md md:max-w-[800px] mx-auto mt-5 px-3  `}
+      className={` max-w-md md:max-w-[800px] mx-auto mt-5 px-3  `}
     >
       <div className="text-sm mb-9">
         <Link
