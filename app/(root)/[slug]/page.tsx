@@ -11,7 +11,8 @@ export const dynamic = "force-static";
 const openSans = Open_Sans({
   subsets: ["latin"],
   weight: ["300", "400", "500", "600", "700"],
-  display:'swap'
+  display: "swap",
+  adjustFontFallback: false,
 });
 
 const Product = async ({ params }: { params: { slug: string } }) => {
