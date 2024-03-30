@@ -6,7 +6,7 @@ import Link from "next/link";
 import { useQuery } from "@tanstack/react-query";
 import { useRouter } from "next/navigation";
 import { getProfile, useGetProfile } from "@/app/services/authService";
-import { getCart } from "@/app/services/cartServices";
+import { getCart, useGetCart } from "@/app/services/cartServices";
 import personIcon from "@/public/icons/person-male-svgrepo-com.svg";
 import arrowIcon from "@/public/icons/down-arrow-5-svgrepo-com.svg";
 import CartQuickView from "./CartQuickView";
@@ -20,10 +20,8 @@ const Header = () => {
   const [showProfile, setShowProfile] = useState(false);
   const { setCart,setUser } = useGlobalContext();
   const user = useGetProfile();
-  const { data ,isFetching } = useQuery({
-    queryKey: ["cart"],
-    queryFn: getCart,
-  });
+  const { data, isFetching } = useGetCart();
+ 
   useEffect(() => {
     setCart(data);
     setUser(user.data)

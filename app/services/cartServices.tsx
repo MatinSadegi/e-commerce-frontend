@@ -1,18 +1,18 @@
-import axios from "axios";
 import { app } from "../api/axios";
 import { useQuery } from "@tanstack/react-query";
-import { CartType } from "../types/types";
+
 
 export async function getCart() {
   const { data } = await app.get("http://localhost:5000/api/cart");
   return data;
 }
 
-export function useGetCart(){
-return useQuery({
-  queryKey:['cart'],
-  queryFn:getCart
-})
+export function useGetCart() {
+  return useQuery({
+    queryKey: ["cart"],
+    queryFn: getCart,
+    retry: false,
+  });
 }
 
 export async function removeProductFromCart({
@@ -32,6 +32,7 @@ export async function removeProductFromCart({
   return data;
 }
 
+
 export async function addToCart(addToCartItems: {
   id: string | undefined;
   count: number;
@@ -43,3 +44,4 @@ export async function addToCart(addToCartItems: {
   );
   return data;
 }
+ 
