@@ -13,14 +13,16 @@ export async function register(formData: FormDataTypes) {
 }
 export async function login(formData: Partial<FormDataTypes>) {
   const { data } = await app.post(
-    "http://localhost:5000/api/user/login",
-    formData,
+    "https://e-commerce-backend-cdwe.onrender.com/api/user/login",
+    formData
   );
   return data;
 } 
 
 export async function getProfile() {
-  const { data } = await app.get("http://localhost:5000/api/user/profile");
+  const { data } = await app.get(
+    "https://e-commerce-backend-cdwe.onrender.com/api/user/profile"
+  );
   return data
 }
 
@@ -35,7 +37,7 @@ export function useGetProfile() {
 
 export async function addNewAddress(formData: AddressTypes) {
   const { data } = await app.post(
-    "http://localhost:5000/api/user/address",
+    "https://e-commerce-backend-cdwe.onrender.com/api/user/address",
     formData
   );
   return data;

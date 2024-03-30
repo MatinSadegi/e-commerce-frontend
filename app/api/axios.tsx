@@ -1,5 +1,5 @@
 import axios from "axios";
-const BASE_URL = "http://localhost:5000/api";
+const BASE_URL = "https://e-commerce-backend-cdwe.onrender.com/api";
 
 export const app = axios.create({ baseURL: BASE_URL, withCredentials: true });
 

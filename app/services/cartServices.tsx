@@ -3,7 +3,9 @@ import { useQuery } from "@tanstack/react-query";
 
 
 export async function getCart() {
-  const { data } = await app.get("http://localhost:5000/api/cart");
+  const { data } = await app.get(
+    "https://e-commerce-backend-cdwe.onrender.com/api/cart"
+  );
   return data;
 }
 
@@ -24,11 +26,14 @@ export async function removeProductFromCart({
   productId: string;
   count: number;
 }) {
-  const { data } = await app.post(`http://localhost:5000/api/cart/remove`, {
-    id: productId,
-    size,
-    count,
-  });
+  const { data } = await app.post(
+    `https://e-commerce-backend-cdwe.onrender.com/api/cart/remove`,
+    {
+      id: productId,
+      size,
+      count,
+    }
+  );
   return data;
 }
 
@@ -39,7 +44,7 @@ export async function addToCart(addToCartItems: {
   size: string | (() => React.JSX.Element);
 }) {
   const { data } = await app.post(
-    "http://localhost:5000/api/cart/add-to-cart",
+    "https://e-commerce-backend-cdwe.onrender.com/api/cart/add-to-cart",
     addToCartItems
   );
   return data;

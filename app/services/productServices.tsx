@@ -5,7 +5,7 @@ const queryClient = new QueryClient();
 
 export async function getProducts(queryString: string) {
   const { data } = await app.get(
-    `http://localhost:5000/api/product?${queryString}`
+    `https://e-commerce-backend-cdwe.onrender.com/api/product?${queryString}`
   );
   return data;
   // return fetch("http://localhost:5000/api/product", { cache: "no-store" })
@@ -21,7 +21,9 @@ export function useGetProducts(queryString: string) {
 }
 
 export async function getProductBySlug(slug: string) {
-  const { data } = await axios.get(`http://localhost:5000/api/product/${slug}`);
+  const { data } = await axios.get(
+    `https://e-commerce-backend-cdwe.onrender.com/api/product/${slug}`
+  );
   return data;
 }
 
