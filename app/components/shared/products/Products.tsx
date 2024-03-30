@@ -1,18 +1,15 @@
-"use client";
+
 import React from "react";
 import ProductCard from "./ProductCard";
 import { ProductType } from "@/app/types/types";
-import { useGetProducts } from "@/app/services/productServices";
+import { getProducts, useGetProducts } from "@/app/services/productServices";
 import QuickView from "../QuickView";
 export const dynamic = "force-dynamic";
 
-const Products = () => {
-  const { data, isError, isPending, error, isSuccess }: any =
-    useGetProducts("");
-  if (isPending) return <h1>Loading ...</h1>;
-  if (isError) {
-    console.log(error);
-  }
+const Products = async() => {
+  // const { data, isError, isPending, error}: any =
+  //   useGetProducts("");
+ const data = await getProducts('')
   return (
     <div className=" grid grid-cols-3 xl:grid-cols-4 justify-between max-w-[1200px] mx-auto  gap-7">
       {data?.map((product: ProductType) => {

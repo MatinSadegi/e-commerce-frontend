@@ -1,3 +1,4 @@
+
 import Collection from "../components/Collection";
 import Products from "../components/shared/products/Products";
 import Trending from "../components/shared/products/Trending";
