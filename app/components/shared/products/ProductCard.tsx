@@ -13,7 +13,7 @@ const ProductCard: React.FC<
 > = ({ image, slug ,title,description,_id,price, quantity}) => {
   const { setData, setShowQuickView } = useGlobalContext();
   return (
-    <div className=" flex flex-col items-start group ">
+    <div className=" flex flex-col items-start group mt-1 max-w-fit ">
       <div className="relative cursor-pointer">
         <Link href={`/${slug}`}>
           <Image src={image.url} alt="shoes" width={350} height={250} className="relative -z-20" />
@@ -38,8 +38,8 @@ const ProductCard: React.FC<
           />
         </div>
       </div>
-      <div className=" text-left  mt-4 ml-1">
-        <p className="mb-1 text-gray-400 transition-all hover:text-orange cursor-pointer">
+      <div className=" text-left  mt-3 ml-1">
+        <p className=" mb-0.5 text-gray-400 transition-all hover:text-orange cursor-pointer">
           {title}
         </p>
         <p className=" font-medium text-sm">${price.toFixed(2)}</p>

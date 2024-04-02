@@ -11,22 +11,24 @@ const Products = async() => {
   //   useGetProducts("");
  const data = await getProducts('')
   return (
-    <div className=" grid grid-cols-3 xl:grid-cols-4 justify-between max-w-[1200px] mx-auto  gap-7">
-      {data?.map((product: ProductType) => {
-        return (
-          <ProductCard
-            key={product._id}
-            _id={product._id}
-            title={product.title}
-            price={product.price}
-            image={product.image}
-            slug={product.slug}
-            description={product.description}
-            quantity={product.quantity}
-          />
-        );
-      })}
-      <QuickView />
+    <div className=" w-full mx-auto ">
+      <div className=" grid mx-auto justify-items-center  grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 max-w-[1200px] gap-6">
+        {data?.map((product: ProductType) => {
+          return (
+            <ProductCard
+              key={product._id}
+              _id={product._id}
+              title={product.title}
+              price={product.price}
+              image={product.image}
+              slug={product.slug}
+              description={product.description}
+              quantity={product.quantity}
+            />
+          );
+        })}
+        <QuickView />
+      </div>
     </div>
   );
 };
