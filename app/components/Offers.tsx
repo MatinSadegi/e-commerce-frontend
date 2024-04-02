@@ -2,14 +2,14 @@ import React from "react";
 import Image from "next/image";
 import bagImg from "@/public/images/offer1.webp";
 import shoes from "@/public/images/offer2.webp";
-// import { Caveat } from "next/font/google";
+import { Caveat } from "next/font/google";
 
-// const caveat = Caveat({
-//   subsets: ["latin"],
-//   weight: ["700"],
-//   display: "swap",
-//   adjustFontFallback: false,
-// });
+const caveat = Caveat({
+  subsets: ["latin"],
+  weight: ["700"],
+  display: "swap",
+  adjustFontFallback: false,
+});
 
 const Offers = () => {
   return (
@@ -26,7 +26,9 @@ const Offers = () => {
 
       <div className=" bg-blue-300 w-full text-center py-2 lg:py-5 flex flex-col justify-between text-white image-border">
         <p>Take an Extra</p>
-        <p className={`py-6 lg:py-0 text-8xl tracking-wide `}>
+        <p
+          className={`${caveat.className} py-6 lg:py-0 text-8xl tracking-wide `}
+        >
           30%
         </p>
         <p className="">Almost Everything Store</p>

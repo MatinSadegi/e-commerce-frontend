@@ -5,10 +5,12 @@ import { useMutation } from "@tanstack/react-query";
 import { register } from "../../services/authService";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import { useRouter } from "next/navigation";
 
 const Register = () => {
   const { mutateAsync } = useMutation({ mutationFn: register });
   let formData: FormDataTypes;
+  const router = useRouter();
   const emailRef = useRef<HTMLInputElement>(null);
   const nameRef = useRef<HTMLInputElement>(null);
   const passwordRef = useRef<HTMLInputElement>(null);
@@ -22,6 +24,7 @@ const Register = () => {
     try {
       const { message } = await mutateAsync(formData);
       toast.success(message);
+      router.push("/profile");
     } catch (error: any) {
       toast.error(error?.response?.data.message);
     }
