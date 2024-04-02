@@ -6,7 +6,7 @@ import { AddressTypes } from "../(dashboard)/profile/Addresses";
 
 export async function register(formData: FormDataTypes) {
   const { data } = await app.post(
-    "http://localhost:5000/api/user/register",
+    "https://e-commerce-backend-cdwe.onrender.com/api/user/register",
     formData
   );
   return data;
