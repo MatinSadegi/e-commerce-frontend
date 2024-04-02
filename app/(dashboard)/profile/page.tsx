@@ -26,11 +26,12 @@ const Profile = () => {
     "Logout",
   ];
   const [selectedItem, setSelectedItem] = useState("Dashboard");
-  const { data, isError, error, isSuccess, isFetching, isLoading } = useQuery({
+  const { data, isError, error, isSuccess,isLoading } = useQuery({
     queryKey: ["profile"],
     queryFn: getProfile,
     retry: false,
   });
+
   if (isLoading) {
     return <LoadingSpinner />;
   }

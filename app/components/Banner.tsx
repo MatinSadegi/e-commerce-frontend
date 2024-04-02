@@ -1,16 +1,19 @@
 "use client";
 
 import React, { useState } from "react";
-// import { Caveat } from "next/font/google";
+import { Caveat } from "next/font/google";
 import { motion } from "framer-motion";
 import Link from "next/link";
+import Image from "next/image";
+import nextIcon from '@/public/icons/more-svgrepo-com.svg'
+import backIcon from '@/public/icons/back-svgrepo-com.svg'
 
-// const caveat = Caveat({
-//   subsets: ["latin"],
-//   weight: ["700"],
-//   display: "swap",
-//   adjustFontFallback: false,
-// });
+
+const caveat = Caveat({
+  subsets: ["latin"],
+  weight: ["700"],
+  display: "swap",
+});
 
 const Banner = () => {
   const slides = [
@@ -44,7 +47,7 @@ const Banner = () => {
   };
 
   return (
-    <div className=" overflow-hidden group relative -z-10  xl:mt-0">
+    <div className=" overflow-hidden group relative  xl:mt-0">
       <motion.div
         style={{ backgroundImage: `url(${slides[slideNum].url})` }}
         className={` h-[600px] w-screen bg-cover bg-center duration-700 items-center flex flex-col justify-around text-white `}
@@ -53,7 +56,7 @@ const Banner = () => {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 1 }}
-          className={` text-6xl lg:text-8xl text-center mt-24 `}
+          className={`${caveat.className} text-6xl lg:text-8xl text-center mt-24 `}
         >
           {slides[slideNum].title}
         </motion.h2>
@@ -68,7 +71,7 @@ const Banner = () => {
         <motion.div
           initial={{ opacity: 0, translateY: 40 }}
           animate={{ opacity: 1, translateY: 0 }}
-          transition={{ duration: 0.6,delay:0.4 }}
+          transition={{ duration: 0.6, delay: 0.4 }}
         >
           <Link
             href="/#"
@@ -80,7 +83,7 @@ const Banner = () => {
         <div className="flex gap-3 mt-10">
           {slides.map((slide, slideIndex) => (
             <span
-            key={slideIndex}
+              key={slideIndex}
               className={`w-8 h-1 transition-all duration-1000  ${
                 slideIndex === slideNum ? "bg-orange" : "bg-white"
               }`}
@@ -89,20 +92,16 @@ const Banner = () => {
         </div>
       </motion.div>
 
-      <div className=" absolute hidden w-full lg:px-8 group-hover:flex justify-between top-1/2 ">
-        <img
-          width="40"
-          height="40"
-          src="https://img.icons8.com/ios-filled/50/9ca3af/back.png"
+      <div className=" absolute hidden  w-full lg:px-8 group-hover:flex justify-between top-1/2 ">
+        <Image
+          src={backIcon}
           alt="back"
-          className=" cursor-pointer"
+          className="cursor-pointer "
           onClick={prevSlide}
         />
-        <img
-          width="40"
-          height="40"
-          src="https://img.icons8.com/ios-filled/50/9ca3af/forward--v1.png"
-          alt="forward--v1"
+        <Image
+          src={nextIcon}
+          alt="forward"
           className=" cursor-pointer"
           onClick={nextSlide}
         />
