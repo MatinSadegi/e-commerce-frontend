@@ -43,7 +43,7 @@ const Profile = () => {
     return (
       <>
         <Header />
-        <div className=" max-w-[1200px] mx-auto mt-10">
+        <div className=" max-w-[1200px] mx-auto mt-10 px-4">
           <div className="text-sm mb-9">
             <Link
               href="/"
@@ -53,8 +53,8 @@ const Profile = () => {
             </Link>
             <span className=""> / My Account</span>
           </div>
-          <div className="flex">
-            <div className="w-1/4 flex flex-col pr-5 gap-2">
+          <div className="flex flex-col md:flex-row items-center">
+            <div className="w-3/4 md:w-1/4 flex flex-col pr-5 gap-2 min-w-[250px]">
               <div className="p-3 bg-gray-100  rounded flex items-center justify-between mb-4">
                 <div className="">
                   <h4> {data?.name}</h4>
@@ -80,7 +80,7 @@ const Profile = () => {
                 );
               })}
             </div>
-            <div className="w-3/4 p-2">
+            <div className="w-3/4 p-2 mt-8 md:mt-0">
               {selectedItem === "Dashboard" ? (
                 <Dashboard setSelectedItem={setSelectedItem} />
               ) : selectedItem === "Orders" ? (
