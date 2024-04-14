@@ -1,20 +1,17 @@
 "use client";
-
 import {
   createContext,
   useContext,
-  Dispatch,
-  SetStateAction,
   useState,
 } from "react";
-import { ProductType, CartType } from "../types/types";
+import { ProductType, CartType, UserDataTypes } from "../types/types";
 
 
 const useValue = () => {
   const [data, setData] = useState<Partial<ProductType>>({});
   const [showQuickView, setShowQuickView] = useState<boolean>(false);
   const [cart, setCart] = useState<CartType>();
-  const [user, setUser] = useState<any>()
+  const [user, setUser] = useState<UserDataTypes>()
   return { data, setData, showQuickView, setShowQuickView, cart, setCart, user,setUser };
 };
 

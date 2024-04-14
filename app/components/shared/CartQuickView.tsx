@@ -6,7 +6,7 @@ import { v4 as uuidv4 } from "uuid";
 import { useMutation } from "@tanstack/react-query";
 import { removeProductFromCart } from "@/app/services/cartServices";
 import multiplyIcon from "@/public/icons/multiply-svgrepo.svg";
-import { CartType, CartProductsType } from "@/app/types/types";
+import {CartProductsType } from "@/app/types/types";
 import { ToastContainer, toast } from "react-toastify";
 import { useGlobalContext } from "@/app/context/store";
 
@@ -27,7 +27,7 @@ const CartQuickView = ({ showCart }: { showCart: boolean }) => {
     try {
       const message = await mutateAsync({ size, productId, count });
       toast.success(message);
-    } catch (error: any) {
+    } catch (error: unknown) {
       console.log(error);
     }
   };
@@ -48,7 +48,7 @@ const CartQuickView = ({ showCart }: { showCart: boolean }) => {
                 className="flex border-b border-gray-300 py-5 items-start justify-between"
               >
                 <Image
-                  src={item.image?.url}
+                  src={item.image.url}
                   alt="product-image"
                   width={65}
                   height={65}

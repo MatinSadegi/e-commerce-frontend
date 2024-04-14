@@ -2,14 +2,14 @@
 import React from "react";
 import ProductCard from "./ProductCard";
 import { ProductType } from "@/app/types/types";
-import { getProducts, useGetProducts } from "@/app/services/productServices";
+import { getProducts} from "@/app/services/productServices";
 import QuickView from "../QuickView";
+
 export const dynamic = "force-dynamic";
 
 const Products = async() => {
-  // const { data, isError, isPending, error}: any =
-  //   useGetProducts("");
  const data = await getProducts('')
+
   return (
     <div className=" w-full mx-auto ">
       <div className=" grid mx-auto justify-items-center  grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 max-w-[1200px] gap-6">
@@ -27,6 +27,7 @@ const Products = async() => {
             />
           );
         })}
+        
         <QuickView />
       </div>
     </div>

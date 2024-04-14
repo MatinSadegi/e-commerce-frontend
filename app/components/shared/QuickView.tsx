@@ -16,12 +16,15 @@ import linkedinIcon from "@/public/icons/linkedin-round-svgrepo-com.svg";
 const QuickView: React.FC = () => {
   const { data, showQuickView, setShowQuickView } = useGlobalContext();
   const { title, price, image, description, quantity, _id } = data;
-  let dropDownItems: any = [{ sm: 0 }, { md: 0 }, { lg: 0 }, { xl: 0 }];
+
+  let dropDownItems:any  ;
   if (quantity) {
-    dropDownItems = Object?.keys(quantity).map((key) => ({
-      [key]: quantity[key],
+    dropDownItems = Object.keys(quantity).map((key: string) => ({
+      [key]: quantity[key as keyof typeof quantity],
+      
     }));
   }
+
   const queryClient = useQueryClient();
   const { mutateAsync } = useMutation({
     mutationFn: addToCart,
@@ -41,11 +44,15 @@ const QuickView: React.FC = () => {
     setCount(1);
   }, [state]);
   useEffect(() => {
-    setAddToCartItems({ ...addToCartItems, count , id:_id });
+    setAddToCartItems({ ...addToCartItems, count, id: _id });
   }, [count, _id]);
 
   const addToCartHandler = async () => {
-    if (quantity && addToCartItems.count > quantity[addToCartItems.size + ""]) {
+    if (
+      quantity &&
+      addToCartItems.count >
+        +quantity[(addToCartItems.size + "") as keyof typeof quantity]
+    ) {
       toast.error("out of stock");
     } else {
       try {
@@ -54,7 +61,6 @@ const QuickView: React.FC = () => {
         toast.error(error?.response?.data.message);
       }
     }
-    console.log(addToCartItems);
   };
 
   const imageUrl: string = image?.url!;
@@ -94,7 +100,10 @@ const QuickView: React.FC = () => {
             <input
               type="number"
               defaultValue={1}
-              max={quantity && quantity[addToCartItems.size + ""]}
+              max={
+                quantity &&
+                +quantity[(addToCartItems.size + "") as keyof typeof quantity]
+              }
               min={1}
               className="border w-16 h-10 p-2 outline-none "
               onChange={(e) => setCount(+e.target.value)}

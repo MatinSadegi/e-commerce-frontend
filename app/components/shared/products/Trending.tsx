@@ -16,7 +16,7 @@ const Trending = async () => {
         Contemporary, minimal and modern design embody the Lavish Alice
         handwriting
       </p>
-      <div className=" mt-8 grid grid-cols-3 xl:grid-cols-4 justify-between max-w-[1200px] mx-auto  gap-7">
+      <div className=" grid mx-auto justify-items-center  grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 max-w-[1200px] gap-6 mt-7">
         {trendingProducts?.map((product: ProductType) => {
           return (
             <ProductCard

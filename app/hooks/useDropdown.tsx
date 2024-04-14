@@ -2,10 +2,11 @@
 import React, { useState } from "react";
 import downIcon from "@/public/icons/down-arrow-5-svgrepo-com.svg";
 import Image from "next/image";
+import { DropDownItemsType } from "../types/types";
 
 export default function useDropdown(
   defaultState: string,
-  options: { [x: string]: number }[]
+  options: DropDownItemsType
 ) {
   const [state, setState] = useState(defaultState); 
   const [dropDown, setDropDown] = useState(false);
@@ -34,7 +35,7 @@ export default function useDropdown(
       <ul
         className={`flex flex-col  w-full  absolute z-10 max-h-[150px] overflow-y-auto scrollbar `}
       >
-        {options.map((item: object) => {
+        {options?.map((item: object) => {
           return (
             <li
               key={Object.keys(item)[0]}
