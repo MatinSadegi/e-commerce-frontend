@@ -59,7 +59,7 @@ const Header = () => {
           showMenu ? "translate-x-0" : "-translate-x-[100%]"
         }`}
       >
-        <div className="border flex w-[250px] py-3 px-4 rounded-full self-center justify-between items-center text-xs ">
+        <div className="border flex w-[280px] py-3 px-4 rounded-full self-center justify-between items-center text-xs ">
           <input
             className=" outline-none"
             type="text"
