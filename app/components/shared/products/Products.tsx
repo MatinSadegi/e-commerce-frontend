@@ -2,17 +2,15 @@
 import React from "react";
 import ProductCard from "./ProductCard";
 import { ProductType } from "@/app/types/types";
-import { getProducts} from "@/app/services/productServices";
+import { getProducts, useGetProducts } from "@/app/services/productServices";
 import QuickView from "../QuickView";
-
 export const dynamic = "force-dynamic";
 
 const Products = async() => {
- const data = await getProducts('')
-
+  const data = await getProducts("");
   return (
-    <div className=" w-full mx-auto ">
-      <div className=" grid mx-auto justify-items-center  grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 max-w-[1200px] gap-6">
+    <div className=" w-full mx-auto  "> 
+      <div className=" grid mx-auto  justify-items-center max-w-[1200px] gap-6  grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
         {data?.map((product: ProductType) => {
           return (
             <ProductCard
@@ -27,11 +25,11 @@ const Products = async() => {
             />
           );
         })}
-        
+
         <QuickView />
-      </div>
+      </div> 
     </div>
-  );
+  ); 
 };
 
 export default Products;

@@ -1,8 +1,7 @@
-"use client"
-import React from 'react'
-import Image from 'next/image'
-import cBanner1 from '@/public/images/collection-banner1.webp'
-import cBanner2 from '@/public/images/collection-banner2.webp'
+import React from "react";
+import Image from "next/image";
+import cBanner1 from "@/public/images/collection-banner1.webp";
+import cBanner2 from "@/public/images/collection-banner2.webp";
 
 const Collection = () => {
   return (
@@ -16,7 +15,7 @@ const Collection = () => {
           <p className="text-base border-b-2 w-fit">Discover Now</p>
         </div>
       </div>
-      <div className='relative image-border cursor-pointer'>
+      <div className="relative image-border cursor-pointer">
         <Image src={cBanner2} alt="banner" />
         <div className=" absolute left-10 top-1/2 -translate-y-1/2 leading-8 flex flex-col items-center">
           <h2 className=" font-normal text-center mb-1 ">
@@ -27,6 +26,6 @@ const Collection = () => {
       </div>
     </section>
   );
-}
+};
 
-export default Collection
+export default Collection;

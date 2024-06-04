@@ -5,7 +5,7 @@ import { useRouter } from "next/navigation";
 import emptyBasket from "@/public/icons/icons8-shopping-basket-96.png";
 import loginIcon from "@/public/icons/login-svgrepo-com.svg";
 
-const EmptyCart = ({ user }: { user: boolean }) => {
+const EmptyCart = ({ user }: { user: any }) => {
   const router = useRouter();
   return (
     <div className="max-w-[500px] md:max-w-[950px] mx-auto px-4 mt-8">

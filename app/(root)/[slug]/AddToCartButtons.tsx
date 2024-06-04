@@ -17,11 +17,11 @@ interface AddToCartProps {
 }
 
 const AddToCartButtons = ({ count, productId }: AddToCartProps) => {
-  const dropDownItems = Object.keys(count).map((key) => ({
+  const dropDownItems: any = Object.keys(count).map((key) => ({
     [key]: count[key],
   }));
   const queryClient = useQueryClient();
-  const { mutateAsync} = useMutation({
+  const { mutateAsync } = useMutation({
     mutationFn: addToCart,
     onSuccess: () => {
       queryClient.invalidateQueries({ queryKey: ["cart"] });
