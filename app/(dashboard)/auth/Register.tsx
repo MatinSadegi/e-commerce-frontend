@@ -26,6 +26,7 @@ const Register = () => {
       toast.success(message);
       router.push("/profile");
     } catch (error: any) {
+      console.log("first");
       toast.error(error?.response?.data.message);
     }
   };

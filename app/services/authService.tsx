@@ -13,7 +13,7 @@ export async function register(formData: FormDataTypes) {
 }
 export async function login(formData: Partial<FormDataTypes>) {
   const { data } = await app.post(
-    "https://e-commerce-backend-cdwe.onrender.com/api/user/login",
+    "http://localhost:5000/api/user/login",
     formData
   );
   return data;
@@ -42,3 +42,11 @@ export async function addNewAddress(formData: AddressTypes) {
   );
   return data;
 } 
+
+
+export async function logout() {
+  const { data } = await app.post(
+    "https://e-commerce-backend-cdwe.onrender.com/api/user/logout"
+  );
+  return data;
+}

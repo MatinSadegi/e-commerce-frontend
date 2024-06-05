@@ -22,7 +22,7 @@ const Login = () => {
     try {
       const { message } = await mutateAsync(formData);
       toast.success(message);
-      router.push('/profile')
+      router.push("/profile");
     } catch (error: any) {
       if (!error?.response) toast.error(error?.response?.data.message);
     }
