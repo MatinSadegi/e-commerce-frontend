@@ -31,7 +31,7 @@ const Profile = () => {
     queryFn: getProfile,
     retry: false,
   });
-
+console.log(data, isError, error, isSuccess, isLoading);
   if (isLoading) {
     return <LoadingSpinner />;
   }
@@ -40,7 +40,7 @@ const Profile = () => {
     redirect("/auth");
   }
   if (isSuccess)
-    return (
+    return ( 
       <>
         <Header />
         <div className=" max-w-[1200px] mx-auto mt-10 px-4">

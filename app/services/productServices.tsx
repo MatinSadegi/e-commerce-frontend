@@ -6,9 +6,9 @@ export async function getProducts(queryString: string) {
   const { data } = await app.get(
     `https://e-commerce-backend-cdwe.onrender.com/api/product?${queryString}`
   );
-  return data;
-}
-
+  return data; 
+} 
+ 
 export function useGetProducts(queryString: string) {
   return useQuery({
     queryKey: ["products"],

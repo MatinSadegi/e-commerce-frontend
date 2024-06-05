@@ -31,9 +31,9 @@ export default function RootLayout({
             <Header />
             <main>{children}</main>
             <Bottombar />
-          </GlobalContextProvider>
+          </GlobalContextProvider> 
         </Provider>
-      </body>
+      </body> 
     </html>
   );
 }

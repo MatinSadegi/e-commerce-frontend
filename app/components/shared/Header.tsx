@@ -12,20 +12,22 @@ import CartQuickView from "./CartQuickView";
 import { useGlobalContext } from "@/app/context/store";
 import ProfileQuickView from "./ProfileQuickView";
 
-const Header = () => {
+const Header = () => { 
   const router = useRouter();
   const [showMenu, setShowMenu] = useState(false);
   const [showCart, setShowCart] = useState(false);
   const [showProfile, setShowProfile] = useState(false);
-  const { setCart,setUser } = useGlobalContext();
-  const user = useGetProfile();
+  // const { setCart,setUser } = useGlobalContext();
   const { data, isFetching } = useGetCart();
+  const user = useGetProfile();
+  const {isLoading} = user
+  console.log(isLoading)
   
  
-  useEffect(() => {
-    setCart(data);
-    setUser(user.data)
-  }, [ isFetching]);
+  // useEffect(() => {
+  //   setCart(data);
+  //   setUser(user.data)
+  // }, [ isFetching]);
  
   return (
     <div
@@ -100,7 +102,7 @@ const Header = () => {
               </Link>
               /
               <Link
-                href={"/#"}
+                href={"/auth"}
                 className="ml-1 hover:text-orange transition-colors"
               >
                 Register
