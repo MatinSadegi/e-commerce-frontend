@@ -10,7 +10,7 @@ const Trending = async () => {
     (product: Pick<ProductType, "trending">) => product.trending === true
   );
   return (
-    <section className="text-center w-full my-12 px-8 ">
+    <section className="text-center w-[90%] my-12  ">
       <h2 className=" font-semibold">Trending Products</h2>
       <p className="pt-7  text-gray-500">
         Contemporary, minimal and modern design embody the Lavish Alice
